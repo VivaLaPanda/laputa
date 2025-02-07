@@ -89,13 +89,24 @@ section {
     align-items: center;
 }
 
+.expanding {
+    height: auto;
+    padding: 40px 0;
+}
+
 .content-section {
     max-width: var(--max-width-content);
-    margin: 0 auto;
+    margin: 0 60px;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 6rem;
     align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .content-section {
+        margin: 0 10px;
+    }
 }
 
 .content-section.reverse {
@@ -201,16 +212,6 @@ section {
     color: var(--color-background);
 }
 
-.about::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0l12.5 12.5L75 0l12.5 12.5L100 0v25l-12.5-12.5L75 25l-12.5-12.5L50 25 37.5 12.5 25 25 12.5 12.5 0 25V0l12.5 12.5L25 0l12.5 12.5L50 0zM0 25v25l12.5 12.5L25 50l12.5 12.5L50 50l12.5 12.5L75 50l12.5 12.5L100 50V25L87.5 37.5 75 25l-12.5 12.5L50 25 37.5 37.5 25 25 12.5 37.5 0 25zm0 50v25h100V75L87.5 87.5 75 75l-12.5 12.5L50 75l-12.5 12.5L25 75 12.5 87.5 0 75z' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
-    background-size: 50px 50px;
-    opacity: 0.15;
-    pointer-events: none;
-}
-
 /* Getting involved section */
 .getting-involved {
     background-image: url('/assets/img/floating-salon.jpg');
@@ -221,7 +222,7 @@ section {
     color: var(--color-background);
 }
 
-.getting-involved .content-section {
+.content-section {
     display: block;
     max-width: var(--max-width-content);
 }
@@ -231,10 +232,11 @@ section {
     gap: 2rem;
     justify-content: space-between;
     width: 100%;
+    align-items: stretch;
 }
 
 .getting-involved .card {
-    flex: 1;
+    flex: 1 1 0;
     display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.1);
@@ -243,21 +245,25 @@ section {
     border-radius: var(--border-radius);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: var(--shadow-elevation);
-    min-height: 300px;
+    text-align: center;
 }
 
 .getting-involved .card h3 {
     margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .getting-involved .card p {
-    flex-grow: 1;
-    margin-bottom: 1.5rem;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 1.5rem;
 }
 
 .getting-involved .card .button {
-    align-self: flex-start;
     margin-top: auto;
+    align-self: center;
 }
 
 /* Shared section styles */
@@ -353,16 +359,6 @@ section {
     overflow: hidden;
 }
 
-.projects::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0l12.5 12.5L75 0l12.5 12.5L100 0v25l-12.5-12.5L75 25l-12.5-12.5L50 25 37.5 12.5 25 25 12.5 12.5 0 25V0l12.5 12.5L25 0l12.5 12.5L50 0zM0 25v25l12.5 12.5L25 50l12.5 12.5L50 50l12.5 12.5L75 50l12.5 12.5L100 50V25L87.5 37.5 75 25l-12.5 12.5L50 25 37.5 37.5 25 25 12.5 37.5 0 25zm0 50v25h100V75L87.5 87.5 75 75l-12.5 12.5L50 75l-12.5 12.5L25 75 12.5 87.5 0 75z' fill='%23D2BEA6' fill-opacity='0.15'/%3E%3C/svg%3E");
-    background-size: 50px 50px;
-    opacity: 0.15;
-    pointer-events: none;
-}
-
 .projects p {
     max-width: 600px;
     margin: 0 auto 3rem;
@@ -374,6 +370,7 @@ section {
     position: relative;
     z-index: 1;
 }
+
 
 .projects .section-subtitle {
     color: rgba(255, 255, 255, 0.8);
@@ -392,36 +389,3 @@ footer p {
     margin: 0;
     color: inherit;
 }
-
-/* Remove scroll animations */
-.fade-in {
-    opacity: 1;
-    transform: none;
-}
-
-/* Content sections in colored backgrounds */
-.about .text-content,
-.getting-involved .text-content {
-    color: var(--color-background);
-}
-
-.about h2,
-.getting-involved h2,
-.about .section-subtitle,
-.getting-involved .section-subtitle,
-.about p,
-.getting-involved p {
-    color: var(--color-background);
-}
-
-.getting-involved li {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.getting-involved h3 {
-    color: var(--color-background);
-}
-
-.getting-involved li:hover {
-    background: rgba(255, 255, 255, 0.05);
-} 
